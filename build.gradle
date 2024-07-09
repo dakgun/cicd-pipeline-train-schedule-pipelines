@@ -21,19 +21,25 @@ repositories.whenObjectAdded {
 task build
 
 //declare a task to create a zip of the app
-task zip(type: Zip) {
-	from ('.') {
-		include "*"
-		include "bin/**"
-		include "data/**"
-		include "node_modules/**"
-		include "public/**"
-		include "routes/**"
-		include "views/**"
-	}
-	destinationDir(file("dist"))
-	baseName "trainSchedule"
+//task zip(type: Zip) {
+//	from ('.') {
+//		include "*"
+//		include "bin/**"
+//		include "data/**"
+//		include "node_modules/**"
+//		include "public/**"
+//		include "routes/**"
+//		include "views/**"
+//	}
+//	destinationDir(file("dist"))
+//	baseName "trainSchedule"
+//}
+
+task zip(type: Exec){
+	executable "sh"
+	args "-c", "echo Hello World"
 }
+	
 
 //declare task dependencies
 build.dependsOn zip
